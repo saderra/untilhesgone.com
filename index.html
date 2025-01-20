@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+          <section class="bg-white relative overflow-hidden">
+    <div
+      class="w-full mx-auto 2xl:max-w-7xl flex flex-col justify-center  py-24 relative p-8">
+      <div
+        class="prose text-gray-500 prose-sm prose-headings:font-normal prose-headings:text-xl mx-auto max-w-sm w-full">
+        <div>
+          <h1>Donald Trump Will No Longer Be President In:</h1>
+        </div>
+      </div>
+      <div class="mt-6 border-t  border-neutral-200  pt-12 max-w-sm mx-auto w-full">
+        <!-- Starts compoent -->
+        <div
+          class="w-full justify-center border p-12 rounded-xl"
+          x-data="{
+  endDate: new Date('2029-1-20T12:00:00').getTime(),
+  remainingTime: 0,
+  formatTime(time) {
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((time % (1000 * 60)) / 1000);
+    return { days, hours, minutes, seconds };
+  }
+}"
+          x-init="() => {
+  setInterval(() => {
+    const now = new Date().getTime();
+    const remainingTime = endDate - now;
+    $data.remainingTime = remainingTime > 0 ? remainingTime : 0;
+  }, 1000);
+}">
+          <template x-if="remainingTime > 0">
+            <div class="gap-4 text-center w-full flex mx-auto justify-between">
+              <div w-full>
+                <div
+                  class="text-3xl font-medium text-gray-500"
+                  x-text="formatTime(remainingTime).days">
+                </div>
+                <div class="text-sm text-orange-500">Days</div>
+              </div>
+              <div w-full>
+                <div
+                  class="text-3xl font-medium text-gray-500"
+                  x-text="formatTime(remainingTime).hours">
+                </div>
+                <div class="text-sm text-orange-500">Hours</div>
+              </div>
+              <div w-full>
+                <div
+                  class="text-3xl font-medium text-gray-500"
+                  x-text="formatTime(remainingTime).minutes">
+                </div>
+                <div class="text-sm text-orange-500">Minutes</div>
+              </div>
+              <div w-full>
+                <div
+                  class="text-3xl font-medium text-gray-500"
+                  x-text="formatTime(remainingTime).seconds">
+                </div>
+                <div class="text-sm text-orange-500">Seconds</div>
+              </div>
+            </div>
+          </template>
+          <template x-if="remainingTime <= 0">
+            <div class="text-center">
+              <div class="text-xl font-bold">Countdown has ended!</div>
+            </div>
+          </template>
+        </div>
+        <!-- Ends compoent -->
+        <!-- Starts links to tutorial -->
+        <div
+          class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center p-2">
+          <div
+            class="pointer-events-auto flex w-full max-w-md divide-x divide-neutral-200 rounded-lg bg-white shadow-xl border border-neutral-200">
+            <div class="flex w-0 flex-1 items-center p-4">
+              <div class="w-full">
+                <p class="text-sm font-medium text-neutral-900">Tutorial</p>
+                <p class="mt-1 text-sm text-neutral-500">
+                  ow to create a countdown with Tailwind CSS and Alpinejs
+                </p>
+                <p class="mt-2 text-xs text-orange-500 underline">
+                  <a href="https://lexingtonthemes.com">
+                    by © Lexington Themes</a
+                  >
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Ends links to tutorial -->
+      </div>
+    </div>
+  </section>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
