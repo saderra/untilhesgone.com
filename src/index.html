@@ -17,8 +17,8 @@
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
 
 
         <script src="//unpkg.com/alpinejs" defer></script>
@@ -27,21 +27,21 @@
 
 <head>
 
-<body class="bg-neutral-400 text-white">
+<body class="bg-neutral-200">
  
          
 
-        <div class="p-0 col-span-12 lg:col-span-8 mt-24 bg-neutral-900 max-w-2xl mx-auto shadow-xl p-12">
+        <div class="p-0 col-span-12 lg:col-span-8 mt-24 bg-neutral-100 max-w-3xl mx-auto shadow-xl p-12">
 
-               <h1 class="text-3xl md:text-4xl pb-8 mb-8 font-medium text-white brand-font">The Second Term of Donald Trump</h1>
-               <h3 class="brand-font">The Agony Will End In:</h3>
+               <h1 class="text-3xl md:text-4xl pb-8 mb-8 font-medium text-neutral-700 brand-font uppercase">The Second Term of Donald Trump</h1>
+               <h3 class="brand-font text-xl uppercase text-neutral-400">The Agony Will End In:</h3>
 
 
-                <p id="clock" class="text-4xl"></p>
+                <p id="clock" class="text-2xl font-semibold"></p>
 
                     <script>
                     // Set the date we're counting down to
-                    var countDownDate = new Date("Jan 19, 2029 19:00:00").getTime();
+                    var countDownDate = new Date("Jan 20, 2029 12:00:00").getTime();
 
                     // Update the count down every 1 second
                     var x = setInterval(function() {
@@ -60,7 +60,7 @@
 
                     // Display the result in the element with id="clock"
                     document.getElementById("clock").innerHTML = days + " Days " + hours + " Hours "
-                    + minutes + " Minutes";
+                    + minutes + " Minutes " + seconds + " Seconds";
 
                     // If the count down is finished, write some text
                     if (distance < 0) {
