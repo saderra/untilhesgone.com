@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body { 
-  @apply font-sans;
-  @apply bg-neutral-200;
-}
 
 .brand-font { 
   font-family: "Roboto", sans-serif;
