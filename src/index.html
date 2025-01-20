@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Donald Trump Second Term</title>
+        <meta name="description" content="A Countdown Time of Donald Trump's Second Term">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <!-- Style Sheet -->
+        <link rel="stylesheet" href="/assets/css/main.css" />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&display=swap" rel="stylesheet">
+
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+
+<head>
+
+<body class="bg-neutral-400 text-white">
+ 
+         
+
+        <div class="p-0 col-span-12 lg:col-span-8 mt-24 bg-neutral-900 max-w-2xl mx-auto shadow-xl p-12">
+
+               <h1 class="text-3xl md:text-4xl pb-8 mb-8 font-medium text-white brand-font">The Second Term of Donald Trump</h1>
+               <h3 class="brand-font">The Agony Will End In:</h3>
+
+
+                <p id="clock" class="text-4xl"></p>
+
+                    <script>
+                    // Set the date we're counting down to
+                    var countDownDate = new Date("Jan 19, 2029 19:00:00").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                    // Get today's date and time
+                    var now = new Date().getTime();
+
+                    // Find the distance between now and the count down date
+                    var distance = countDownDate - now;
+
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Display the result in the element with id="clock"
+                    document.getElementById("clock").innerHTML = days + " Days " + hours + " Hours "
+                    + minutes + " Minutes";
+
+                    // If the count down is finished, write some text
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("clock").innerHTML = "EXPIRED";
+                    }
+                    }, 1000);
+                    </script>
+
+        </div>
+
+
+</body>
+</html>
