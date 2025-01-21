@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
 
     // PASS THROUGH
     eleventyConfig.addPassthroughCopy("./src/images");
+    eleventyConfig.addPassthroughCopy('./src/ext')
 
     // PLUGINS
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
