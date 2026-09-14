@@ -17,7 +17,7 @@
             })
             .then(function (data) {
                 var price = Number(data.price).toFixed(2);
-                ticker.setValue("$" + price);
+                ticker.setValue("$" + price, true);
                 if (statusEl) {
                     statusEl.textContent =
                         "Current price: $" + price + " per gallon — US national average, regular unleaded" +

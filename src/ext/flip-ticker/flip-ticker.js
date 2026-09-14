@@ -81,8 +81,10 @@
 
     // Flips each changed character into place using the same two-step
     // (leaf flip + top/bottom swap) timing FlipDown uses internally.
-    FlipTicker.prototype.setValue = function (text) {
-        var chars = text.split("");
+    // Pass asOneTile to render the whole string as a single flip card
+    // instead of one rotor per character.
+    FlipTicker.prototype.setValue = function (text, asOneTile) {
+        var chars = asOneTile ? [text] : text.split("");
 
         if (!this.initialised || chars.length !== this.rotors.length) {
             this._build(chars);
