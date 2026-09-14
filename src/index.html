@@ -23,6 +23,21 @@
         .flipdown {
             width: auto;
         }
+        .gas-ticker-dollar {
+            display: inline-flex;
+            align-items: center;
+            height: 80px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 3rem;
+            color: #fff;
+        }
+        @media (max-width: 550px) {
+            .gas-ticker-dollar {
+                height: 50px;
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-neutral-200">
@@ -40,6 +55,40 @@
 
             const fd = new FlipDown(endTimestamp).start()
         </script>
+
+        <script src="/ext/flip-ticker/flip-ticker.js"></script>
+
+        <div class="pt-16">
+            <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Meanwhile, Gas Costs</h2>
+
+            <div class="flex items-end">
+                <span class="gas-ticker-dollar">$</span>
+                <div id="gas-ticker"></div>
+            </div>
+
+            <p id="gas-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide"></p>
+        </div>
+
+        <script src="/ext/gas-ticker/gas-ticker.js"></script>
+        <script>
+            window.initGasTicker('gas-ticker', 'gas-ticker-status', 'Gas Price')
+        </script>
+
+        <div class="pt-16">
+            <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Meanwhile In Iran</h2>
+
+            <div id="iran-ticker"></div>
+
+            <p id="iran-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide">Days since February 28, 2026</p>
+        </div>
+
+        <script src="/ext/flip-ticker/days-since.js"></script>
+        <script>
+            const iranStartDate = new Date("Feb 28, 2026 00:00:00")
+            window.initDaysSinceTicker('iran-ticker', 'iran-ticker-status', iranStartDate, 'Days')
+        </script>
+
+        <p class="py-12"><a href="https://corinnefreer.com/" class="brand-font underline tracking-wide">Visit CorinneFreer.com &raquo;</a></p>
     </div>
 </body>
 </html>
