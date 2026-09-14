@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Donald Trump Second Term</title>
-    <meta name="description" content="A Countdown Timer of Donald Trump's Second Term">
+    <title>Until He's Gone — Trump Second Term Countdown</title>
+    <meta name="description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://untilhesgone.com/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://untilhesgone.com/">
+    <meta property="og:title" content="Until He's Gone — Trump Second Term Countdown">
+    <meta property="og:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
+    <meta property="og:image" content="https://untilhesgone.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Until He's Gone — Trump Second Term Countdown">
+    <meta name="twitter:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
+    <meta name="twitter:image" content="https://untilhesgone.com/og-image.png">
 
     <!-- Style Sheet -->
     <link rel="stylesheet" href="/assets/css/main.css" />
@@ -23,30 +38,44 @@
         .flipdown {
             width: auto;
         }
-        .gas-ticker-dollar {
-            display: inline-flex;
-            align-items: center;
-            height: 80px;
-            font-family: sans-serif;
-            font-weight: bold;
-            font-size: 3rem;
-            color: #fff;
-        }
-        @media (max-width: 550px) {
-            .gas-ticker-dollar {
-                height: 50px;
-                font-size: 2.2rem;
-            }
-        }
     </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "name": "Until He's Gone",
+                "url": "https://untilhesgone.com/",
+                "description": "A live countdown to the end of Donald Trump's second presidential term, plus real-time context like the US average gas price."
+            },
+            {
+                "@type": "Event",
+                "name": "Donald Trump's Second Presidential Term",
+                "startDate": "2025-01-20",
+                "endDate": "2029-01-20",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "location": {
+                    "@type": "Place",
+                    "name": "United States"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-neutral-200">
     <div class="p-8">
         <h1 class="text-3xl md:text-4xl pb-8 mb-8 font-medium text-neutral-700 brand-font uppercase">The Second Term<br />of Donald Trump<br />Countdown</h1>
 
+        <p class="text-sm text-neutral-500 pb-6 brand-font tracking-wide">Donald Trump's second presidential term began January 20, 2025 and is scheduled to end January 20, 2029.</p>
+
         <div id="flipdown-container">
             <div id="flipdown" class="flipdown"></div>
         </div>
+
+        <p id="countdown-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide"></p>
 
         <script src="/ext/flipdown/flipdown.min.js"></script>
         <script>
@@ -54,17 +83,26 @@
             const endTimestamp = endDate.getTime() / 1000
 
             const fd = new FlipDown(endTimestamp).start()
+
+            const countdownStatusEl = document.getElementById('countdown-status')
+            function updateCountdownStatus() {
+                const secondsLeft = Math.max(0, Math.floor(endTimestamp - Date.now() / 1000))
+                const days = Math.floor(secondsLeft / 86400)
+                const hours = Math.floor((secondsLeft % 86400) / 3600)
+                const minutes = Math.floor((secondsLeft % 3600) / 60)
+                const seconds = secondsLeft % 60
+                countdownStatusEl.textContent = days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, and ' + seconds + ' seconds remain until January 20, 2029.'
+            }
+            updateCountdownStatus()
+            setInterval(updateCountdownStatus, 1000)
         </script>
 
         <script src="/ext/flip-ticker/flip-ticker.js"></script>
 
         <div class="pt-16">
-            <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Meanwhile, Gas Costs</h2>
+            <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Gas Price Per Gallon Today</h2>
 
-            <div class="flex items-end">
-                <span class="gas-ticker-dollar">$</span>
-                <div id="gas-ticker"></div>
-            </div>
+            <div id="gas-ticker"></div>
 
             <p id="gas-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide"></p>
         </div>
@@ -77,15 +115,18 @@
         <div class="pt-16">
             <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Meanwhile In Iran</h2>
 
-            <div id="iran-ticker"></div>
+            <div class="flex items-start gap-8">
+                <div id="iran-months-ticker"></div>
+                <div id="iran-days-ticker"></div>
+            </div>
 
-            <p id="iran-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide">Days since February 28, 2026</p>
+            <p id="iran-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide">Time elapsed since February 28, 2026</p>
         </div>
 
-        <script src="/ext/flip-ticker/days-since.js"></script>
+        <script src="/ext/flip-ticker/months-days-since.js"></script>
         <script>
             const iranStartDate = new Date("Feb 28, 2026 00:00:00")
-            window.initDaysSinceTicker('iran-ticker', 'iran-ticker-status', iranStartDate, 'Days')
+            window.initMonthsDaysSinceTicker('iran-months-ticker', 'iran-days-ticker', 'iran-ticker-status', iranStartDate, 'February 28, 2026')
         </script>
 
         <p class="py-12"><a href="https://corinnefreer.com/" class="brand-font underline tracking-wide">Visit CorinneFreer.com &raquo;</a></p>

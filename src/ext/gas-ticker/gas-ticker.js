@@ -16,11 +16,12 @@
                 return res.json();
             })
             .then(function (data) {
-                ticker.setValue(Number(data.price).toFixed(2));
+                var price = Number(data.price).toFixed(2);
+                ticker.setValue("$" + price);
                 if (statusEl) {
                     statusEl.textContent =
-                        "US national average, regular unleaded" +
-                        (data.asOf ? " — as of " + data.asOf + " (source: AAA)" : " (source: AAA)");
+                        "Current price: $" + price + " per gallon — US national average, regular unleaded" +
+                        (data.asOf ? ", as of " + data.asOf : "") + " (source: AAA).";
                 }
             })
             .catch(function (err) {

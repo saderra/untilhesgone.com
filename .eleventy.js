@@ -9,6 +9,11 @@ module.exports = function (eleventyConfig) {
     // PASS THROUGH
     eleventyConfig.addPassthroughCopy("./src/images");
     eleventyConfig.addPassthroughCopy('./src/ext')
+    eleventyConfig.addPassthroughCopy("./src/robots.txt");
+    eleventyConfig.addPassthroughCopy("./src/sitemap.xml");
+    eleventyConfig.addPassthroughCopy("./src/llms.txt");
+    eleventyConfig.addPassthroughCopy("./src/favicon.svg");
+    eleventyConfig.addPassthroughCopy("./src/og-image.png");
 
     // PLUGINS
     eleventyConfig.addPlugin(eleventyNavigationPlugin);

@@ -1,0 +1,16 @@
+# Until He's Gone
+
+> A live countdown timer tracking how much time remains in Donald Trump's second term as President of the United States, plus related real-time context.
+
+## Key facts
+
+- Donald Trump's second presidential term began January 20, 2025 and is scheduled to end January 20, 2029.
+- The homepage shows a live countdown (days, hours, minutes, seconds) to that end date.
+- The homepage also shows the current AAA-reported US national average price for a gallon of regular unleaded gasoline, refreshed roughly every 30 minutes.
+- The homepage tracks the time elapsed (months and days) since February 28, 2026, under the heading "Meanwhile In Iran."
+
+## Notes for agents
+
+- The live numeric values (countdown, gas price, months/days elapsed) are computed and rendered client-side with JavaScript. Fetching the raw HTML without executing JavaScript will not show their current values.
+- To get the current countdown without running JavaScript, compute it yourself from the end date above (January 20, 2029) and the current date.
+- To get the current gas price, fetch https://untilhesgone.com/.netlify/functions/gas-price directly — it returns JSON: `{ "price": "0.0000", "asOf": "M/D/YY", "source": "...", "fetchedAt": "ISO-8601" }`.
