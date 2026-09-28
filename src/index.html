@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Until He's Gone — Trump Second Term Countdown</title>
-    <meta name="description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
+    <meta name="description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas and diesel prices.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="https://untilhesgone.com/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,14 +12,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://untilhesgone.com/">
     <meta property="og:title" content="Until He's Gone — Trump Second Term Countdown">
-    <meta property="og:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
+    <meta property="og:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas and diesel prices.">
     <meta property="og:image" content="https://untilhesgone.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Until He's Gone — Trump Second Term Countdown">
-    <meta name="twitter:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas price.">
+    <meta name="twitter:description" content="A live countdown to the end of Donald Trump's second presidential term on January 20, 2029, plus the current US average gas and diesel prices.">
     <meta name="twitter:image" content="https://untilhesgone.com/og-image.png">
 
     <!-- Style Sheet -->
@@ -38,23 +38,23 @@
         .flipdown {
             width: auto;
         }
-        #gas-ticker .rotor,
-        #gas-ticker .rotor-leaf,
-        #gas-ticker .rotor-leaf-front,
-        #gas-ticker .rotor-leaf-rear,
-        #gas-ticker .rotor-top,
-        #gas-ticker .rotor-bottom,
-        #gas-ticker .rotor:after {
+        .price-ticker .rotor,
+        .price-ticker .rotor-leaf,
+        .price-ticker .rotor-leaf-front,
+        .price-ticker .rotor-leaf-rear,
+        .price-ticker .rotor-top,
+        .price-ticker .rotor-bottom,
+        .price-ticker .rotor:after {
             width: 220px;
         }
         @media (max-width: 550px) {
-            #gas-ticker .rotor,
-            #gas-ticker .rotor-leaf,
-            #gas-ticker .rotor-leaf-front,
-            #gas-ticker .rotor-leaf-rear,
-            #gas-ticker .rotor-top,
-            #gas-ticker .rotor-bottom,
-            #gas-ticker .rotor:after {
+            .price-ticker .rotor,
+            .price-ticker .rotor-leaf,
+            .price-ticker .rotor-leaf-front,
+            .price-ticker .rotor-leaf-rear,
+            .price-ticker .rotor-top,
+            .price-ticker .rotor-bottom,
+            .price-ticker .rotor:after {
                 width: 160px;
             }
         }
@@ -68,7 +68,7 @@
                 "@type": "WebSite",
                 "name": "Until He's Gone",
                 "url": "https://untilhesgone.com/",
-                "description": "A live countdown to the end of Donald Trump's second presidential term, plus real-time context like the US average gas price."
+                "description": "A live countdown to the end of Donald Trump's second presidential term, plus real-time context like the US average gas and diesel prices."
             },
             {
                 "@type": "Event",
@@ -122,14 +122,23 @@
         <div class="pt-16">
             <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Gas Price Per Gallon Today</h2>
 
-            <div id="gas-ticker"></div>
+            <div id="gas-ticker" class="price-ticker"></div>
 
             <p id="gas-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide"></p>
         </div>
 
+        <div class="pt-16">
+            <h2 class="text-xl md:text-2xl mb-4 font-medium text-neutral-700 brand-font uppercase">Diesel Price Per Gallon Today</h2>
+
+            <div id="diesel-ticker" class="price-ticker"></div>
+
+            <p id="diesel-ticker-status" class="text-sm text-neutral-500 pt-2 brand-font tracking-wide"></p>
+        </div>
+
         <script src="/ext/gas-ticker/gas-ticker.js"></script>
         <script>
-            window.initGasTicker('gas-ticker', 'gas-ticker-status', 'Gas Price')
+            window.initGasTicker('gas-ticker', 'gas-ticker-status', 'Gas Price', 'regular')
+            window.initGasTicker('diesel-ticker', 'diesel-ticker-status', 'Diesel Price', 'diesel')
         </script>
 
         <div class="pt-16">
